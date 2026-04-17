@@ -1,0 +1,161 @@
+.event-list-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.event-list-header {
+  margin-bottom: 1.25rem;
+}
+
+.event-list-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.event-list-header p {
+  margin: 0.5rem 0 0;
+  color: #475569;
+}
+
+.event-list-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+}
+
+.event-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 14px rgba(2, 6, 23, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.event-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.event-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0f766e;
+  background: #ccfbf1;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.event-price {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.event-meta {
+  margin: 0;
+  color: #334155;
+}
+
+.event-availability {
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.event-card button {
+  margin-top: auto;
+  border: none;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+}
+
+.event-card button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.event-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.event-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0f766e;
+  background: #ccfbf1;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.event-price {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.event-meta {
+  margin: 0;
+  color: #334155;
+}
+
+.event-availability {
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.event-card button {
+  margin-top: auto;
+  border: none;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+}
+
+.event-card button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .event-list-grid {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .event-card {
+    margin: 10px;
+  }
+}
