@@ -5,7 +5,7 @@
 export default function EventDetail() {
   return (
     <div>
-      <p>Event detail — coming soon.</p>
+      <p></p>
     </div>
   );
 }

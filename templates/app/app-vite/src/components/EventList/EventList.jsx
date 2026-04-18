@@ -1,5 +1,5 @@
 import events from "../../data/events.js";
-import EventCard from "./EventsCard/EventCard.jsx";
+import EventCard from "../EventsCard/EventCard.jsx";
 import "./EventList.css";
 
 // TODO: split each event below into its own EventCard component
