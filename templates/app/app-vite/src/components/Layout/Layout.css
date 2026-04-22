@@ -1,0 +1,52 @@
+.app-header-inner {
+  display: flex;
+  gap: 20px;
+  padding: 10px 30px;
+  background-color: #f0f0f0;
+  align-items: center;
+}
+.app-header {
+  position: sticky;
+}
+
+.brand-logo {
+  width: 80px;
+  height: auto;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  text-decoration: none;
+  background: linear-gradient(45deg, #e2dd4a, #134efe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
