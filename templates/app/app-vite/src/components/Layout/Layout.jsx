@@ -61,7 +61,44 @@ export default function Layout() {
       </main>
 
       <footer className="app-footer">
-        <p>Copyright © 2026 HackYourFuture</p>
+        <div className="footer-grid">
+          <section className="footer-column">
+            <h3>About Us</h3>
+            <ul>
+              <li>Our Mission</li>
+              <li>Team</li>
+              <li>Careers</li>
+            </ul>
+          </section>
+
+          <section className="footer-column">
+            <h3>Connect With Us</h3>
+            <ul>
+              <li>Instagram</li>
+              <li>LinkedIn</li>
+              <li>Contact support</li>
+            </ul>
+          </section>
+
+          <section className="footer-column">
+            <h3>Plan Events</h3>
+            <ul>
+              <li>Create event</li>
+              <li>Pricing</li>
+              <li>Venue tips</li>
+            </ul>
+          </section>
+
+          <section className="footer-column">
+            <h3>Manage Event</h3>
+            <ul>
+              <li>Dashboard</li>
+              <li>Attendee list</li>
+              <li>Ticket check-in</li>
+            </ul>
+          </section>
+        </div>
+        <p className="footer-copy">Copyright © 2026 HackYourFuture Denmark</p>
       </footer>
     </div>
   );
