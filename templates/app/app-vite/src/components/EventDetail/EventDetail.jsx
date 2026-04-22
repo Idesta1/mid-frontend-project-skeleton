@@ -1,17 +1,15 @@
 import events from "../../data/events.js";
 import "./EventDetail.css";
+import { useParams } from "react-router-dom";
 
-// TODO: display at least date, time, venue, city, and description for one event
-// TODO: use useParams() to get the event id from the URL
-// TODO: fetch the event from GET /events/:id instead of using mock data
-
-export default function EventDetail({ event }) {
-  const selectedEvent = event ?? events[0];
+export default function EventDetail() {
+  const { id } = useParams();
+  const selectedEvent = events.find((event) => event.id === Number(id));
 
   if (!selectedEvent) {
     return (
       <section className="event-detail-page">
-        <p>No event selected.</p>
+        <p>Event not found.</p>
       </section>
     );
   }
