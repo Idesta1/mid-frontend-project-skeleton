@@ -8,4 +8,6 @@ body,
   padding: 0;
   height: 100%;
   width: 100%;
+  color: #333435;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

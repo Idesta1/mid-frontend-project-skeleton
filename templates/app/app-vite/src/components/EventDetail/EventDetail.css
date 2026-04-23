@@ -66,6 +66,19 @@
   line-height: 1.6;
   color: #334155;
 }
+.event-detail-image {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.event-detail-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 @media (max-width: 768px) {
   .event-detail-page {
