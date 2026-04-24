@@ -55,6 +55,8 @@
   color: #ffffff;
   padding: 0.65rem 0.9rem;
   cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .event-card button:disabled {
@@ -63,4 +65,5 @@
 }
 .learn-more-link button {
   background: #0b246a;
+  margin-top: 1rem;
 }

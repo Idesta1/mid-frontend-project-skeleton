@@ -7,6 +7,7 @@ export default function EventDetail() {
   const { id } = useParams();
   const selectedEvent = events.find((event) => event.id === Number(id));
   const [quantity, setQuantity] = useState(1);
+  const [sortBy, setSortBy] = useState("name");
 
   const handleQuantityChange = (event) => {
     setQuantity(Number(event.target.value));

@@ -10,7 +10,7 @@
 
 .event-list-header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .event-list-header p {
@@ -21,12 +21,12 @@
 .event-list-grid {
   list-style: none;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  max-width: 1100px; /* centered content width */
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  max-width: 1500px; /* centered content width */
   margin: 0 auto; /* center grid block */
   padding-inline: clamp(1rem, 4vw, 3rem); /* left/right outer space */
-  padding-block: 1rem; /* top/bottom outer space */
+  padding-block: 2rem; /* top/bottom outer space */
 }
 
 @media (max-width: 768px) {
