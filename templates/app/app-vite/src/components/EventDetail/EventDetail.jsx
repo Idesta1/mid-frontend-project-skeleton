@@ -1,18 +1,22 @@
 import events from "../../data/events.js";
 import "./EventDetail.css";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
+export default function EventDetail() {
+  const { id } = useParams();
+  const selectedEvent = events.find((event) => event.id === Number(id));
+  const [quantity, setQuantity] = useState(1);
+  const [sortBy, setSortBy] = useState("name");
 
-// TODO: display at least date, time, venue, city, and description for one event
-// TODO: use useParams() to get the event id from the URL
-// TODO: fetch the event from GET /events/:id instead of using mock data
-
-export default function EventDetail({ event }) {
-  const selectedEvent = event ?? events[0];
+  const handleQuantityChange = (event) => {
+    setQuantity(Number(event.target.value));
+  };
 
   if (!selectedEvent) {
     return (
       <section className="event-detail-page">
-        <p>No event selected.</p>
+        <p>Event not found.</p>
       </section>
     );
   }
@@ -39,6 +43,27 @@ export default function EventDetail({ event }) {
             <strong>City:</strong> {selectedEvent.city}
           </p>
         </aside>
+        <div>
+          <label htmlFor="quantity">Tickets</label>
+          <input
+            id="quantity"
+            type="number"
+            min={1}
+            max={selectedEvent.ticketsAvailable}
+            value={quantity}
+            onChange={handleQuantityChange}
+          />
+          <p>
+            Total:{" "}
+            {selectedEvent.price === 0
+              ? "Free"
+              : `$${selectedEvent.price * quantity}`}
+          </p>
+        </div>
+
+        <div className="event-detail-image">
+          <img src={selectedEvent.image} alt={selectedEvent.name} />
+        </div>
 
         <section className="event-detail-description" aria-label="Description">
           <h2>About this event</h2>

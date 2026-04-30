@@ -1,3 +1,7 @@
+import reactConfImage from "../assets/ReactConf1.png";
+import aiConfImage from "../assets/AIconf1.png";
+import jsConfImage from "../assets/Jsconf1.png";
+
 // Hardcoded mock events for development before switching to fetch.
 // Shape should match the API: GET /events
 const events = [
@@ -14,6 +18,7 @@ const events = [
     ticketsAvailable: 0,
     totalTickets: 800,
     category: "Conference",
+    image: reactConfImage,
   },
   {
     id: 2,
@@ -28,6 +33,7 @@ const events = [
     ticketsAvailable: 60,
     totalTickets: 150,
     category: "Hackathon",
+    image: aiConfImage,
   },
   {
     id: 3,
@@ -42,6 +48,7 @@ const events = [
     ticketsAvailable: 12,
     totalTickets: 30,
     category: "Workshop",
+    image: jsConfImage,
   },
 ];
 
