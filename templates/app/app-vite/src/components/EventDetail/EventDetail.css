@@ -30,6 +30,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: minmax(220px, 300px) 1fr;
+  margin-top: 1rem;
 }
 
 .event-detail-meta {
@@ -76,8 +77,28 @@
 .event-detail-image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 280px;
   object-fit: cover;
+}
+
+.event-detail-image-fallback {
+  min-height: 280px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  color: #ffffff;
+}
+
+.event-detail-image-fallback h2 {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+}
+
+.event-detail-image-fallback p {
+  margin: 0.45rem 0 0;
+  opacity: 0.95;
 }
 
 @media (max-width: 768px) {

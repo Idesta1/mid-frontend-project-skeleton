@@ -1,5 +1,4 @@
 import EventCard from "../EventsCard/EventCard.jsx";
-import { useState, useEffect } from "react";
 import "./EventList.css";
 
 const EventList = ({ events, sortBy }) => {
@@ -23,7 +22,7 @@ const EventList = ({ events, sortBy }) => {
   });
 
   return (
-    <div>
+    <div className="event-list-grid">
       {sorted.map((event) => (
         <EventCard key={event.id} event={event} />
       ))}
