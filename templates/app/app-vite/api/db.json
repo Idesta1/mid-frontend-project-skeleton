@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "iglesiad25@gmail.com",
+      "password": "$2a$10$scjwYMtNWMVK.ScFle/3KuRgeDZ71MX9AI.k74c4.Q6G8UDo7C.DK",
+      "id": 1
+    }
+  ],
   "events": [
     {
       "id": 1,
