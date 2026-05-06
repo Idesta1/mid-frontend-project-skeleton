@@ -2,9 +2,11 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import hyfLogo from "../../assets/hyf.svg";
 import { useAuth } from "../../context/AuthContext.jsx";
 import "./Layout.css";
+import { useCart } from "../../context/CartContext.jsx";
 
 export default function Layout() {
   const { user, logout } = useAuth();
+  const { cartItems } = useCart();
 
   return (
     <div className="app-shell">
@@ -39,6 +41,15 @@ export default function Layout() {
             </NavLink>{" "}
           </nav>
           <div className="auth-status">
+            <Link to="/cart" className="cart-badge">
+              🛒
+              {cartItems.reduce((sum, item) => sum + item.quantity, 0) > 0 && (
+                <span className="badge-count">
+                  {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+                </span>
+              )}
+            </Link>
+
             {user ? (
               <>
                 <span className="user-email">{user.email}</span>

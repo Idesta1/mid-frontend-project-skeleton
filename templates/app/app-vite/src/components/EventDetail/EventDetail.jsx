@@ -1,12 +1,14 @@
 import "./EventDetail.css";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useCart } from "../../context/CartContext.jsx";
 import api from "../../api";
 
 const EventDetail = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [error, setError] = useState("");
+  const { addItem } = useCart();
 
   useEffect(() => {
     // Fetch event details based on the id
@@ -87,6 +89,7 @@ const EventDetail = () => {
         <article className="event-detail-description">
           <h2>About this event</h2>
           <p>{event.description}</p>
+          <button onClick={() => addItem(event)}>Add to Cart</button>
         </article>
       </div>
     </section>

@@ -1,7 +1,9 @@
 import "./EventCard.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext.jsx";
 
 const EventCard = ({ event }) => {
+  const { addItem } = useCart();
   return (
     <div className="event-card">
       <h3>{event.name}</h3>
@@ -18,7 +20,11 @@ const EventCard = ({ event }) => {
       <h5 className="event-availability">
         {event.ticketsAvailable} Tickets left
       </h5>
-      <button type="button" disabled={event.ticketsAvailable === 0}>
+      <button
+        type="button"
+        disabled={event.ticketsAvailable === 0}
+        onClick={() => addItem(event)}
+      >
         {event.ticketsAvailable === 0 ? "Sold out" : "Get Ticket"}
       </button>
       <Link to={`/events/${event.id}`} className="learn-more-link">
