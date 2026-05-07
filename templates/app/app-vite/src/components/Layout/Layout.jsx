@@ -52,7 +52,10 @@ export default function Layout() {
 
             {user ? (
               <>
-                <span className="user-email">{user.email}</span>
+                <Link to="/account">My Account</Link>
+                <Link to="/account" className="user-email">
+                  <span className="user-email">{user.email}</span>
+                </Link>
                 <button className="signout-btn" onClick={logout}>
                   Sign out
                 </button>
