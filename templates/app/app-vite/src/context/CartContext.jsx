@@ -1,7 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-
-
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
@@ -43,9 +41,10 @@ export function CartProvider({ children }) {
     localStorage.setItem("cart", JSON.stringify(updated));
   }
 
- 
-
-  
+  function clearCart() {
+    setCartItems([]);
+    localStorage.removeItem("cart");
+  }
 
   return (
     <CartContext.Provider
@@ -54,7 +53,7 @@ export function CartProvider({ children }) {
         addItem,
         removeItem,
         updateCartItem,
-       
+        clearCart,
       }}
     >
       {children}
