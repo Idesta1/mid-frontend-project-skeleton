@@ -12,7 +12,9 @@ import EventDetail from "./components/EventDetail/EventDetail.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import CheckoutPage from "./components/Checkout/CheckoutPage.jsx";
+import CheckoutStatusPage from "./components/Checkout/CheckoutStatusPage.jsx";
 import AccountPage from "./components/AccountPage/AccountPage.jsx";
+import OrderDetail from "./components/OrderDetail/OrderDetail.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 // Cart model: cart items are stored in localStorage via CartContext (no backend needed).
@@ -36,10 +38,22 @@ const router = createBrowserRouter([
         element: <CheckoutPage />,
       },
       {
+        path: "checkout/status",
+        element: <CheckoutStatusPage />,
+      },
+      {
         path: "account",
         element: (
           <ProtectedRoute>
             <AccountPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "account/orders/:orderId",
+        element: (
+          <ProtectedRoute>
+            <OrderDetail />
           </ProtectedRoute>
         ),
       },
