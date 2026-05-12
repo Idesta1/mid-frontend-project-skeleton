@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext.jsx";
 import api from "../../api";
 
 export default function CheckoutPage() {
-  const { cartItems, clearCart } = useCart();
+  const { cartItems, cartLocked, lastOrderId, markOrderCreated } = useCart();
   const { token, user } = useAuth();
-  const navigate = useNavigate();
 
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -18,9 +18,15 @@ export default function CheckoutPage() {
   );
 
   async function handlePlaceOrder() {
+    if (!token || !user) {
+      setError("You must be logged in to place an order.");
+      return;
+    }
+
     try {
       setIsPlacingOrder(true);
       setError("");
+      setSuccess("");
 
       const response = await fetch(api("/orders"), {
         method: "POST",
@@ -41,14 +47,37 @@ export default function CheckoutPage() {
         throw new Error("Could not place order");
       }
 
-      await response.json();
-      clearCart();
-      navigate("/events");
+      const createdOrder = await response.json();
+      markOrderCreated(createdOrder);
+      setSuccess("Order placed successfully.");
     } catch (error) {
       setError(error.message || "An error occurred while placing your order");
     } finally {
       setIsPlacingOrder(false);
     }
+  }
+
+  if (!token || !user) {
+    return (
+      <section>
+        <h1>Checkout</h1>
+        <p>You must be logged in to place an order.</p>
+        <Link to="/login">Login</Link>
+      </section>
+    );
+  }
+
+  if (cartLocked) {
+    return (
+      <section>
+        <h1>Checkout</h1>
+        <p>
+          {success || "Your order has been created and your cart is locked."}
+        </p>
+        {lastOrderId && <p>Order reference: #{lastOrderId}</p>}
+        <Link to="/account">Go to my account</Link>
+      </section>
+    );
   }
 
   if (cartItems.length === 0) {
@@ -65,6 +94,7 @@ export default function CheckoutPage() {
     <section>
       <h1>Checkout</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
+      {success && <p style={{ color: "green" }}>{success}</p>}
 
       <ul>
         {cartItems.map((item) => (

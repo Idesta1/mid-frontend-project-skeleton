@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext.jsx";
 
 const EventCard = ({ event }) => {
-  const { addItem } = useCart();
+  const { addItem, cartLocked } = useCart();
   return (
     <div className="event-card">
       <h3>{event.name}</h3>
@@ -22,10 +22,14 @@ const EventCard = ({ event }) => {
       </h5>
       <button
         type="button"
-        disabled={event.ticketsAvailable === 0}
+        disabled={event.ticketsAvailable === 0 || cartLocked}
         onClick={() => addItem(event)}
       >
-        {event.ticketsAvailable === 0 ? "Sold out" : "Get Ticket"}
+        {event.ticketsAvailable === 0
+          ? "Sold out"
+          : cartLocked
+            ? "Order placed"
+            : "Get Ticket"}
       </button>
       <Link to={`/events/${event.id}`} className="learn-more-link">
         <button type="button">Learn more</button>

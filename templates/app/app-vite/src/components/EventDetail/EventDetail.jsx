@@ -8,7 +8,7 @@ const EventDetail = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [error, setError] = useState("");
-  const { addItem } = useCart();
+  const { addItem, cartLocked } = useCart();
 
   useEffect(() => {
     // Fetch event details based on the id
@@ -89,7 +89,9 @@ const EventDetail = () => {
         <article className="event-detail-description">
           <h2>About this event</h2>
           <p>{event.description}</p>
-          <button onClick={() => addItem(event)}>Add to Cart</button>
+          <button onClick={() => addItem(event)} disabled={cartLocked}>
+            {cartLocked ? "Order placed" : "Add to Cart"}
+          </button>
         </article>
       </div>
     </section>

@@ -9,12 +9,33 @@ export function CartProvider({ children }) {
     const stored = localStorage.getItem("cart");
     return stored ? JSON.parse(stored) : [];
   });
+  const [cartLocked, setCartLocked] = useState(() => {
+    return localStorage.getItem("cartLocked") === "true";
+  });
+  const [lastOrderId, setLastOrderId] = useState(() => {
+    return localStorage.getItem("lastOrderId") || "";
+  });
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  useEffect(() => {
+    localStorage.setItem("cartLocked", JSON.stringify(cartLocked));
+  }, [cartLocked]);
+
+  useEffect(() => {
+    if (lastOrderId) {
+      localStorage.setItem("lastOrderId", lastOrderId);
+      return;
+    }
+
+    localStorage.removeItem("lastOrderId");
+  }, [lastOrderId]);
+
   function addItem(event) {
+    if (cartLocked) return;
+
     const existing = cartItems.find((item) => item.id === event.id);
     let updated;
     if (existing) {
@@ -28,12 +49,21 @@ export function CartProvider({ children }) {
   }
 
   function removeItem(eventId) {
+    if (cartLocked) return;
+
     const updated = cartItems.filter((item) => item.id !== eventId);
     setCartItems(updated);
     localStorage.setItem("cart", JSON.stringify(updated));
   }
 
   function updateCartItem(eventId, quantity) {
+    if (cartLocked) return;
+
+    if (quantity < 1) {
+      removeItem(eventId);
+      return;
+    }
+
     const updated = cartItems.map((item) =>
       item.id === eventId ? { ...item, quantity } : item,
     );
@@ -46,14 +76,23 @@ export function CartProvider({ children }) {
     localStorage.removeItem("cart");
   }
 
+  function markOrderCreated(order) {
+    clearCart();
+    setCartLocked(true);
+    setLastOrderId(order?.id ? String(order.id) : "");
+  }
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
+        cartLocked,
+        lastOrderId,
         addItem,
         removeItem,
         updateCartItem,
         clearCart,
+        markOrderCreated,
       }}
     >
       {children}

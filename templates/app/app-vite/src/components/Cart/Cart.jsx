@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import "./Cart.css";
 
 export default function Cart() {
-  const { cartItems, removeItem, updateCartItem } = useCart();
+  const { cartItems, cartLocked, lastOrderId, removeItem, updateCartItem } =
+    useCart();
   const { user } = useAuth();
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -14,6 +15,12 @@ export default function Cart() {
   return (
     <div className="cart-page">
       <h1>Cart</h1>
+      {cartLocked && (
+        <p className="cart-empty">
+          Order created{lastOrderId ? ` (#${lastOrderId})` : ""}. Cart is now
+          read-only.
+        </p>
+      )}
       {cartItems.length === 0 ? (
         <p className="cart-empty">Your cart is empty</p>
       ) : (
@@ -25,13 +32,14 @@ export default function Cart() {
                 <div className="cart-item-controls">
                   <button
                     onClick={() => updateCartItem(item.id, item.quantity - 1)}
-                    disabled={item.quantity === 1}
+                    disabled={item.quantity === 1 || cartLocked}
                   >
                     -
                   </button>
                   <span className="cart-item-quantity">{item.quantity}</span>
                   <button
                     onClick={() => updateCartItem(item.id, item.quantity + 1)}
+                    disabled={cartLocked}
                   >
                     +
                   </button>
@@ -39,6 +47,7 @@ export default function Cart() {
                 <button
                   className="cart-item-remove"
                   onClick={() => removeItem(item.id)}
+                  disabled={cartLocked}
                 >
                   Remove
                 </button>
@@ -46,9 +55,13 @@ export default function Cart() {
             ))}
           </ul>
           <p className="cart-total">Total: ${total.toFixed(2)}</p>
-          {user ? (
+          {user && !cartLocked ? (
             <Link to="/checkout" className="btn-checkout">
               Proceed to Checkout
+            </Link>
+          ) : user && cartLocked ? (
+            <Link to="/account" className="btn-checkout">
+              View Order in Account
             </Link>
           ) : (
             <div className="cart-guest-prompt">
