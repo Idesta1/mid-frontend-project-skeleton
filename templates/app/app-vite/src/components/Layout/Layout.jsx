@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { useState } from "react";
 import hyfLogo from "../../assets/hyf.svg";
 import { useAuth } from "../../context/AuthContext.jsx";
 import "./Layout.css";
@@ -7,6 +8,15 @@ import { useCart } from "../../context/CartContext.jsx";
 export default function Layout() {
   const { user, logout } = useAuth();
   const { cartItems } = useCart();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="app-shell">
@@ -25,20 +35,36 @@ export default function Layout() {
             <span className="brand-title">MyEvents</span>
           </a>
 
-          <nav className="main-nav" aria-label="Main navigation">
-            <NavLink to="/" end>
+          <button
+            className="hamburger-btn"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+
+          <nav
+            className={`main-nav ${mobileMenuOpen ? "mobile-open" : ""}`}
+            aria-label="Main navigation"
+          >
+            <NavLink to="/" end onClick={closeMobileMenu}>
               Home
             </NavLink>
-            <NavLink to="/events">Find Events</NavLink>
-            <NavLink to="/" end>
+            <NavLink to="/events" onClick={closeMobileMenu}>
+              Find Events
+            </NavLink>
+            <NavLink to="/" end onClick={closeMobileMenu}>
               Create Events
             </NavLink>
-            <NavLink to="/" end>
+            <NavLink to="/" end onClick={closeMobileMenu}>
               Tickets
             </NavLink>
-            <NavLink to="/" end>
+            <NavLink to="/" end onClick={closeMobileMenu}>
               Help
-            </NavLink>{" "}
+            </NavLink>
           </nav>
           <div className="auth-status">
             <Link to="/cart" className="cart-badge">
