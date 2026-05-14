@@ -117,12 +117,8 @@ a {
 }
 
 .app-footer {
-  background-image: linear-gradient(
-    -225deg,
-    #473b7b 0%,
-    #3584a7 51%,
-    #30d2be 100%
-  );
+  width: 100%;
+  background-color: #25423e;
   color: white;
   margin-top: 24px;
   padding: 24px 30px 12px;
