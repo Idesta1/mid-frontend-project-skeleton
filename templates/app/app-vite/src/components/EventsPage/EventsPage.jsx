@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import EventList from "../EventList/EventList.jsx";
+import api from "../../api.js";
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -8,8 +9,6 @@ const EventsPage = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const API = import.meta.env.VITE_API_URL;
 
   const search = searchParams.get("q") || "";
   const page = Number(searchParams.get("page") || 1);
@@ -47,7 +46,7 @@ const EventsPage = () => {
         query.set("_page", String(page));
         query.set("_limit", String(limit));
 
-        const res = await fetch(`${API}/events?${query.toString()}`);
+        const res = await fetch(api(`/events?${query.toString()}`));
         if (!res.ok) {
           throw new Error(`Request failed with status ${res.status}`);
         }
@@ -66,7 +65,7 @@ const EventsPage = () => {
     };
 
     fetchEvents();
-  }, [API, search, page, limit, sortBy]);
+  }, [search, page, limit, sortBy]);
 
   const handleSearchChange = (e) => {
     updateParams({ q: e.target.value, page: 1 });
