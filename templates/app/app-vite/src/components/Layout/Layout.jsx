@@ -1,6 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
-import hyfLogo from "../../assets/hyf.svg";
 import { useAuth } from "../../context/AuthContext.jsx";
 import "./Layout.css";
 import { useCart } from "../../context/CartContext.jsx";
@@ -27,11 +26,6 @@ export default function Layout() {
             target="_blank"
             className="brand"
           >
-            <img
-              src={hyfLogo}
-              alt="HackYourFuture logo"
-              className="brand-logo"
-            />
             <span className="brand-title">MyEvents</span>
           </a>
 
