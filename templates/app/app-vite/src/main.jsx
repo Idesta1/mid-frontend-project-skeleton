@@ -1,20 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout/Layout.jsx";
-import HomePage from "./components/HomePage/HomePage.jsx";
-import EventsPage from "./components/EventsPage/EventsPage.jsx";
-import Login from "./components/Login/Login.jsx";
-import Register from "./components/Register/Register.jsx";
+import Layout from "./components/layout/Layout/Layout.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import EventsPage from "./pages/EventsPage/EventsPage.jsx";
+import Login from "./pages/Login/Login.jsx";
+import Register from "./pages/Register.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import "./main.css";
-import EventDetail from "./components/EventDetail/EventDetail.jsx";
+import EventDetail from "./pages/EventDetail/EventDetail.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import Cart from "./components/Cart/Cart.jsx";
-import CheckoutPage from "./components/Checkout/CheckoutPage.jsx";
-import CheckoutStatusPage from "./components/Checkout/CheckoutStatusPage.jsx";
-import AccountPage from "./components/AccountPage/AccountPage.jsx";
-import OrderDetail from "./components/OrderDetail/OrderDetail.jsx";
+import Cart from "./components/cart/Cart.jsx";
+import CheckoutPage from "./pages/Checkout/CheckoutPage.jsx";
+import CheckoutStatusPage from "./pages/Checkout/CheckoutStatusPage.jsx";
+import AccountPage from "./pages/AccountPage/AccountPage.jsx";
+import OrderDetail from "./pages/OrderDetail/OrderDetail.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 // Cart model: cart items are stored in localStorage via CartContext (no backend needed).

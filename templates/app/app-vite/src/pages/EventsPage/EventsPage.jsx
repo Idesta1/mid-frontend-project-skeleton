@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import EventList from "../EventList/EventList.jsx";
+import EventList from "../../components/events/EventList/EventList.jsx";
 import api from "../../api.js";
 
 const EventsPage = () => {

@@ -1,8 +1,8 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../../context/AuthContext.jsx";
 import "./Layout.css";
-import { useCart } from "../../context/CartContext.jsx";
+import { useCart } from "../../../context/CartContext.jsx";
 
 export default function Layout() {
   const { user, logout } = useAuth();

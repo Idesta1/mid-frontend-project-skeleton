@@ -1,4 +1,4 @@
-import "./EventSortControl.css";
+import "../EventsCard/EventSortControl.css";
 
 export default function EventSortControl({ sortBy, onSortChange }) {
   const handleSortChange = (event) => {
