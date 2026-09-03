@@ -6,13 +6,11 @@
   box-shadow: 0 4px 14px rgba(2, 6, 23, 0.08);
   display: flex;
   flex-direction: column;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .event-card h2 {
   margin: 0;
-
+  font-size: 1.1rem;
   color: #0f172a;
 }
 
@@ -55,15 +53,9 @@
   color: #ffffff;
   padding: 0.65rem 0.9rem;
   cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 500;
 }
 
 .event-card button:disabled {
   background: #94a3b8;
   cursor: not-allowed;
-}
-.learn-more-link button {
-  background: #0b246a;
-  margin-top: 1rem;
 }

@@ -2,29 +2,14 @@ import events from "../../data/events.js";
 import EventCard from "../EventsCard/EventCard.jsx";
 import "./EventList.css";
 
-function EventList({ sortBy }) {
-  const sorted = [...events].sort((a, b) => {
-    if (sortBy === "date-asc") {
-      return new Date(a.date) - new Date(b.date);
-    }
-    if (sortBy === "date-desc") {
-      return new Date(b.date) - new Date(a.date);
-    }
-    if (sortBy === "price-asc") {
-      return a.price - b.price;
-    }
-    if (sortBy === "price-desc") {
-      return b.price - a.price;
-    }
-    if (sortBy === "name-asc") {
-      return a.name.localeCompare(b.name);
-    }
-    return 0;
-  });
+// TODO: split each event below into its own EventCard component
+// TODO: add a "Buy ticket" button to each event card
+// TODO: replace the mock data import with a fetch call to GET /events
 
+function EventList() {
   return (
     <ul className="event-list-grid">
-      {sorted.map((event) => (
+      {events.map((event) => (
         <EventCard key={event.id} event={event} />
       ))}
     </ul>
