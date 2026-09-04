@@ -21,6 +21,7 @@ const EventList = ({ events, sortBy }) => {
     return 0;
   });
 
+function EventList() {
   return (
     <div className="event-list-grid">
       {sorted.map((event) => (

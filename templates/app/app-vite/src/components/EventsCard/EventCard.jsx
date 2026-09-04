@@ -1,5 +1,4 @@
 import "./EventCard.css";
-import { Link } from "react-router-dom";
 
 const EventCard = ({ event }) => {
   return (
@@ -11,6 +10,7 @@ const EventCard = ({ event }) => {
       <p className="meta">
         {event.venue}, {event.city}
       </p>
+<<<<<<< HEAD
       <h4 className="event-category">{event.category}</h4>
       <h4 className="event-price ">
         {event.price === 0 ? "Free" : `$${event.price}`}
@@ -25,6 +25,21 @@ const EventCard = ({ event }) => {
         <button type="button">Learn more</button>
       </Link>
     </div>
+=======
+      <p className="event-category">{event.category}</p>
+      <p className="event-price">
+        {event.price === 0 ? "Free" : `€${event.price}`}
+      </p>
+      <p className="event-availability">
+        {event.ticketsAvailable === 0
+          ? "Sold out"
+          : `${event.ticketsAvailable} tickets left`}
+      </p>
+      <button type="button" disabled={event.ticketsAvailable === 0}>
+        {event.ticketsAvailable === 0 ? "Sold out" : "Buy ticket"}
+      </button>
+    </li>
+>>>>>>> origin/main
   );
 };
 
