@@ -1,4 +1,4 @@
-import "../EventsCard/EventSortControl.css";
+import styles from "./EventFilters.module.css";
 
 export default function EventSortControl({ sortBy, onSortChange }) {
   const handleSortChange = (event) => {
@@ -6,7 +6,7 @@ export default function EventSortControl({ sortBy, onSortChange }) {
   };
 
   return (
-    <div className="event-sort-control">
+    <div className={styles["event-sort-control"]}>
       <label htmlFor="sort-by">Sort by:</label>
       <select id="sort-by" value={sortBy} onChange={handleSortChange}>
         <option value="date-asc">Date: soonest first</option>

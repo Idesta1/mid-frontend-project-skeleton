@@ -4,6 +4,7 @@ import { useCart } from "../../../context/CartContext.jsx";
 
 const EventCard = ({ event }) => {
   const { addItem, cartLocked } = useCart();
+
   return (
     <div className="event-card">
       <h3>{event.name}</h3>

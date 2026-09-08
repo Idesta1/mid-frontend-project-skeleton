@@ -1,7 +1,7 @@
 import EventCard from "../EventsCard/EventCard.jsx";
 import "./EventList.css";
 
-const EventList = ({ events, sortBy }) => {
+const EventList = ({ events = [], sortBy = "date-asc" }) => {
   const sorted = [...events].sort((a, b) => {
     if (sortBy === "date-asc") {
       return new Date(a.date) - new Date(b.date);
@@ -18,10 +18,12 @@ const EventList = ({ events, sortBy }) => {
     if (sortBy === "name-asc") {
       return a.name.localeCompare(b.name);
     }
+    if (sortBy === "name-desc") {
+      return b.name.localeCompare(a.name);
+    }
     return 0;
   });
 
-function EventList() {
   return (
     <div className="event-list-grid">
       {sorted.map((event) => (
