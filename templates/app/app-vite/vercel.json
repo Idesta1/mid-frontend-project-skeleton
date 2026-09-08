@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/events/:id",
+      "destination": "/api/events?id=:id"
+    }
+  ]
+}

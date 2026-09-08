@@ -1,8 +1,14 @@
 html,
 body,
 #root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  color: #333435;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #a2b6df;
 }

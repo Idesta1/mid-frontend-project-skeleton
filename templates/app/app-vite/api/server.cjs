@@ -1,3 +1,5 @@
+process.env.JWT_EXPIRES_IN = "24h";
+
 const jsonServer = require("json-server");
 const auth = require("json-server-auth");
 const path = require("path");
