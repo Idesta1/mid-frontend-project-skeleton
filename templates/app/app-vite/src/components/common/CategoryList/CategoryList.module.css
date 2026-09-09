@@ -1,0 +1,22 @@
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 1rem;
+}
+
+.categoryChip {
+  border: 1px solid #dfe7f3;
+  background: #f8fafc;
+  color: #1f2937;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryChip:hover {
+  background: #e2e8f0;
+}

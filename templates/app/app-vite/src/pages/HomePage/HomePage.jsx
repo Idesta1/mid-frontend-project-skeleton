@@ -1,5 +1,6 @@
 import styles from "./HomePage.module.css";
 import Button from "../../components/common/Button/Button.jsx";
+import CategoryList from "../../components/common/CategoryList/CategoryList.jsx";
 import image from "../../assets/Event home.jpg";
 import { useState, useEffect } from "react";
 import EventCard from "../../components/events/EventsCard/EventCard.jsx";
@@ -40,9 +41,7 @@ function Homepage() {
         <img src={image} alt="Hero Image" />
       </section>
 
-      <section className={styles.categories}>
-        {/* Categories will go here */}
-      </section>
+      <CategoryList />
 
       <section className={styles.trendingGrid}>
         <h2>Trending Events</h2>

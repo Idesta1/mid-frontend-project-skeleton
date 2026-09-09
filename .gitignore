@@ -2,3 +2,8 @@
 .env
 node_modules
 .vscode/
+# build output
+dist/
+templates/app/app-vite/dist/
+
+
