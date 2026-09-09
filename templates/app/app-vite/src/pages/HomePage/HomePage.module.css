@@ -9,3 +9,20 @@
     height: 300px;
   }
 }
+.eventCards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1400px;
+  margin: 0 auto 2.5rem;
+  padding-inline: clamp(1.25rem, 5vw, 4rem); /* left/right outer space */
+  padding-block: 2.5rem; /* top/bottom outer space */
+  row-gap: 4.5rem; /* vertical gap between rows */
+}
+
+@media (max-width: 768px) {
+  .eventCards {
+    grid-template-columns: 1fr;
+    padding-inline: 1rem;
+  }
+}

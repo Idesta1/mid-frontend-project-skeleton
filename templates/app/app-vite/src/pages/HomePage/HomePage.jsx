@@ -2,8 +2,31 @@ import styles from "./HomePage.module.css";
 import Button from "../../components/common/Button/Button.jsx";
 import image from "../../assets/Event home.jpg";
 import { useState, useEffect } from "react";
+import EventCard from "../../components/events/EventsCard/EventCard.jsx";
 
 function Homepage() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("/api/events");
+        const data = await response.json();
+        setEvents(data);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const trendingEvents = events.slice(0, 3);
+  const upcomingEvents = events.slice(3, 6);
+
   return (
     <main className={styles.homepage}>
       <section className={styles.hero}>
@@ -21,16 +44,34 @@ function Homepage() {
         {/* Categories will go here */}
       </section>
 
-      <section className={styles.TrendingEvents}>
+      <section className={styles.trendingGrid}>
         <h2>Trending Events</h2>
+
+        {loading ? (
+          <p>Loading events...</p>
+        ) : (
+          <div className={styles.eventCards}>
+            {trendingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        )}
 
         {/* Trending Event cards will go here */}
       </section>
 
-      <section className={styles.upcoming}>
+      <section className={styles.upcomingGrid}>
         <h2>Upcoming Events near you</h2>
 
-        {/* Event list will go here */}
+        {loading ? (
+          <p>Loading events...</p>
+        ) : (
+          <div className={styles.eventCards}>
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        )}
       </section>
 
       <section className={styles.createEvent}>
