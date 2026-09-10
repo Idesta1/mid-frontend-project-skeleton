@@ -1,37 +1,23 @@
-.homepage {
-  padding: 1rem;
-}
-
 .heroImage {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
   width: 100%;
+  img {
+    width: 100%;
+    height: 300px;
+  }
 }
-
-.heroImage img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
 .eventCards {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 1400px;
   margin: 0 auto 2.5rem;
-  padding-inline: clamp(1.25rem, 5vw, 4rem);
-  padding-block: 2.5rem;
-  row-gap: 4.5rem;
-}
-
-@media (max-width: 900px) {
-  .eventCards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  padding-inline: clamp(1.25rem, 5vw, 4rem); /* left/right outer space */
+  padding-block: 2.5rem; /* top/bottom outer space */
+  row-gap: 4.5rem; /* vertical gap between rows */
 }
 
 @media (max-width: 768px) {

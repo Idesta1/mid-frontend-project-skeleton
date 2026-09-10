@@ -1,5 +1,5 @@
 .button {
-  background: #2c2c2e;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 8px;
@@ -11,7 +11,7 @@
 }
 
 .button:hover {
-  background: #000000;
+  background: #272626;
 }
 
 .button:disabled {
