@@ -1,8 +1,9 @@
 import styles from "./HomePage.module.css";
 import Button from "../../components/common/Button/Button.jsx";
-import image from "../../assets/Event home.jpg";
+import image from "../../assets/disco.jpg";
 import { useState, useEffect } from "react";
 import EventCard from "../../components/events/EventsCard/EventCard.jsx";
+import CategoryList from "../../components/common/CategoryList/CategoryList.jsx";
 
 function Homepage() {
   const [events, setEvents] = useState([]);
@@ -29,19 +30,28 @@ function Homepage() {
 
   return (
     <main className={styles.homepage}>
-      <section className={styles.hero}>
-        <p>DISCOVER EVENTS</p>
-        <h1>Find your next experience</h1>
-        <p>Browse trending event,workshop, and meetups happening near you.</p>
-        <Button>Explore Events</Button>
+      <section className={styles.hero} aria-labelledby="home-hero-title">
+        <div className={styles.heroContent}>
+          <p className={styles.heroEyebrow}>Discover events</p>
+          <h1 id="home-hero-title" className={styles.heroTitle}>
+            Find your next experience
+          </h1>
+          <p className={styles.heroDescription}>
+            Browse trending events, workshops, and meetups happening near you.
+          </p>
+          <div className={styles.heroActions}>
+            <Button>Explore Events</Button>
+            <Button>Create Event</Button>
+          </div>
+        </div>
       </section>
 
-      <section className={styles.heroImage}>
-        <img src={image} alt="Hero Image" />
+      <section className={styles.heroImage} aria-label="Featured event imagery">
+        <img src={image} alt="Featured event and community gathering" />
       </section>
 
       <section className={styles.categories}>
-        {/* Categories will go here */}
+        <CategoryList />
       </section>
 
       <section className={styles.trendingGrid}>
@@ -56,8 +66,6 @@ function Homepage() {
             ))}
           </div>
         )}
-
-        {/* Trending Event cards will go here */}
       </section>
 
       <section className={styles.upcomingGrid}>
@@ -72,12 +80,6 @@ function Homepage() {
             ))}
           </div>
         )}
-      </section>
-
-      <section className={styles.createEvent}>
-        <p>Create an event and invite others to join.</p>
-
-        <Button>Create Event</Button>
       </section>
     </main>
   );

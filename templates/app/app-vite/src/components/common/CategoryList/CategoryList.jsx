@@ -3,16 +3,16 @@ import styles from "./CategoryList.module.css";
 const defaultCategories = [
   "All",
   "Music",
-  "Nightlife",
+  "Sports",
   "Visual Arts",
-  "Holidays",
+  "Festivals",
   "Dating",
-  "Hobbies",
-  "Business",
+  "Community Events",
+  "Conferences",
   "Food & Drink",
 ];
 
-function CategoryList({ categories = defaultCategories }) {
+export default function CategoryList({ categories = defaultCategories }) {
   return (
     <div className={styles.categoryList} aria-label="Event categories">
       {categories.map((category) => (
@@ -23,5 +23,3 @@ function CategoryList({ categories = defaultCategories }) {
     </div>
   );
 }
-
-export default CategoryList;
