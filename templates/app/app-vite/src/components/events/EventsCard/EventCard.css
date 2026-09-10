@@ -45,6 +45,16 @@
   font-weight: 600;
   color: #0f172a;
 }
+.event-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 0.9rem;
+  background: #e2e8f0;
+}
+
 .event-card button {
   margin-top: auto;
   border: none;

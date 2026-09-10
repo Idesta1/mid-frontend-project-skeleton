@@ -9,7 +9,7 @@
   "events": [
     {
       "id": 1,
-      "name": "React Copenhagen Conference 2026",
+      "name": " Cophenhagen Contemporary Art Fair 2026",
       "date": "2026-04-15",
       "time": "09:00",
       "venue": "Copenhagen Concert Hall",
@@ -18,7 +18,8 @@
       "price": 149,
       "ticketsAvailable": 0,
       "totalTickets": 800,
-      "category": "Conference"
+      "category": "Conference",
+      "image": "art_exi.jpg"
     },
     {
       "id": 2,
@@ -31,7 +32,8 @@
       "price": 0,
       "ticketsAvailable": 60,
       "totalTickets": 150,
-      "category": "Hackathon"
+      "category": "Hackathon",
+      "image": "conference_2.jpg"
     },
     {
       "id": 3,
@@ -44,7 +46,8 @@
       "price": 79,
       "ticketsAvailable": 12,
       "totalTickets": 30,
-      "category": "Workshop"
+      "category": "Workshop",
+      "image": "community_music.jpg"
     },
     {
       "id": 4,
@@ -57,7 +60,8 @@
       "price": 89,
       "ticketsAvailable": 18,
       "totalTickets": 25,
-      "category": "Workshop"
+      "category": "Workshop",
+      "image": "conference_1.jpg"
     },
     {
       "id": 5,
@@ -70,7 +74,8 @@
       "price": 0,
       "ticketsAvailable": 85,
       "totalTickets": 120,
-      "category": "Meetup"
+      "category": "Meetup",
+      "image": "dance_party.jpg"
     },
     {
       "id": 6,
@@ -83,7 +88,8 @@
       "price": 199,
       "ticketsAvailable": 0,
       "totalTickets": 40,
-      "category": "Bootcamp"
+      "category": "Bootcamp",
+      "image": "sport_golf.jpg"
     },
     {
       "id": 7,
@@ -96,7 +102,8 @@
       "price": 299,
       "ticketsAvailable": 320,
       "totalTickets": 1200,
-      "category": "Conference"
+      "category": "Conference",
+      "image": "community_event.jpg"
     },
     {
       "id": 8,
@@ -109,7 +116,8 @@
       "price": 95,
       "ticketsAvailable": 8,
       "totalTickets": 25,
-      "category": "Workshop"
+      "category": "Workshop",
+      "image": "sport-community.jpg"
     },
     {
       "id": 9,
@@ -122,7 +130,8 @@
       "price": 59,
       "ticketsAvailable": 40,
       "totalTickets": 60,
-      "category": "Workshop"
+      "category": "Workshop",
+      "image": "women_volleyball.jpg"
     },
     {
       "id": 10,
@@ -135,7 +144,8 @@
       "price": 69,
       "ticketsAvailable": 55,
       "totalTickets": 80,
-      "category": "Workshop"
+      "category": "Workshop",
+      "image": "outdoor-gather.jpg"
     }
   ],
   "orders": []
