@@ -116,37 +116,6 @@ a {
   color: #666;
 }
 
-.app-footer {
-  width: 100%;
-  background-color: #25423e;
-  background-image: linear-gradient(
-    to top,
-    #0c3483 0%,
-    #6b8cce 100%,
-    #a2b6df 100%
-  );
-  color: white;
-  margin-top: 24px;
-  padding: 24px 30px 12px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.footer-column h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-weight: 600;
-}
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 .cart-badge {
   position: relative;
   font-size: 1.4rem;
@@ -251,10 +220,6 @@ a {
 
   .auth-status {
     display: none;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
   }
 
   .app-footer {
