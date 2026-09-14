@@ -95,7 +95,7 @@ const EventCard = ({ event }) => {
             : "Get Ticket"}
       </button>
       <Link to={`/events/${event.id}`} className="learn-more-link">
-        <button type="button">Learn more</button>
+        Learn more <span aria-hidden="true">&#8594;</span>
       </Link>
     </div>
   );
