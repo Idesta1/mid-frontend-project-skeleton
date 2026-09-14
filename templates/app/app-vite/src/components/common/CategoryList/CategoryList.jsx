@@ -12,14 +12,28 @@ const defaultCategories = [
   "Food & Drink",
 ];
 
-export default function CategoryList({ categories = defaultCategories }) {
+export default function CategoryList({
+  categories = defaultCategories,
+  selectedCategory = "All",
+  onSelect,
+}) {
   return (
     <div className={styles.categoryList} aria-label="Event categories">
-      {categories.map((category) => (
-        <button key={category} type="button" className={styles.categoryChip}>
-          {category}
-        </button>
-      ))}
+      {categories.map((category) => {
+        const isSelected = selectedCategory === category;
+
+        return (
+          <button
+            key={category}
+            type="button"
+            aria-pressed={isSelected}
+            className={`${styles.categoryChip} ${isSelected ? styles.selected : ""}`.trim()}
+            onClick={() => onSelect(category)}
+          >
+            {category}
+          </button>
+        );
+      })}
     </div>
   );
 }

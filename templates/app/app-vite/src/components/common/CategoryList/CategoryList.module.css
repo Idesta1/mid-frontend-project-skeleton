@@ -27,14 +27,14 @@
   outline: none;
 }
 
-.categoryChip:first-child {
+.selected {
   background: #111827;
   border-color: #111827;
   color: #ffffff;
 }
 
-.categoryChip:first-child:hover,
-.categoryChip:first-child:focus-visible {
+.selected:hover,
+.selected:focus-visible {
   background: #1f2937;
   border-color: #1f2937;
 }

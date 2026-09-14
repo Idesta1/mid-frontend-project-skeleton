@@ -8,15 +8,19 @@ import CategoryList from "../../components/common/CategoryList/CategoryList.jsx"
 function Homepage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("/api/events");
+        const response = await fetch("/api/events?ts=" + Date.now(), {
+          cache: "no-store",
+        });
         const data = await response.json();
-        setEvents(data);
+        setEvents(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching events:", error);
+        setEvents([]);
       } finally {
         setLoading(false);
       }
@@ -25,8 +29,22 @@ function Homepage() {
     fetchEvents();
   }, []);
 
-  const trendingEvents = events.slice(0, 3);
-  const upcomingEvents = events.slice(3, 6);
+  const normalizeCategory = (category) =>
+    String(category || "")
+      .trim()
+      .toLowerCase();
+
+  const visibleEvents =
+    selectedCategory === "All"
+      ? events
+      : events.filter(
+          (event) =>
+            normalizeCategory(event.category) ===
+            normalizeCategory(selectedCategory),
+        );
+
+  const trendingEvents = visibleEvents.slice(0, 3);
+  const upcomingEvents = visibleEvents.slice(3, 6);
 
   return (
     <main className={styles.homepage}>
@@ -51,7 +69,10 @@ function Homepage() {
       </section>
 
       <section className={styles.categories}>
-        <CategoryList />
+        <CategoryList
+          selectedCategory={selectedCategory}
+          onSelect={setSelectedCategory}
+        />
       </section>
 
       <section className={styles.trendingGrid}>
@@ -59,6 +80,8 @@ function Homepage() {
 
         {loading ? (
           <p>Loading events...</p>
+        ) : trendingEvents.length === 0 ? (
+          <p>No events found for this category.</p>
         ) : (
           <div className={styles.eventCards}>
             {trendingEvents.map((event) => (
@@ -73,6 +96,8 @@ function Homepage() {
 
         {loading ? (
           <p>Loading events...</p>
+        ) : upcomingEvents.length === 0 ? (
+          <p>No upcoming events in this category.</p>
         ) : (
           <div className={styles.eventCards}>
             {upcomingEvents.map((event) => (
