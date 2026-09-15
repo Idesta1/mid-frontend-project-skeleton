@@ -4,6 +4,7 @@ import image from "../../assets/disco.jpg";
 import { useState, useEffect } from "react";
 import EventCard from "../../components/events/EventsCard/EventCard.jsx";
 import CategoryList from "../../components/common/CategoryList/CategoryList.jsx";
+import api from "../../api.js";
 
 function Homepage() {
   const [events, setEvents] = useState([]);
@@ -13,7 +14,7 @@ function Homepage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("/api/events?ts=" + Date.now(), {
+        const response = await fetch(api("/events?ts=" + Date.now()), {
           cache: "no-store",
         });
         const data = await response.json();
