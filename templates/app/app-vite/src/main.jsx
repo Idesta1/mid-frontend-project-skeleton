@@ -10,7 +10,7 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import "./main.css";
 import EventDetail from "./pages/EventDetail/EventDetail.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import Cart from "./components/cart/Cart.jsx";
+import Cart from "./components/Cart/Cart.jsx";
 import CheckoutPage from "./pages/Checkout/CheckoutPage.jsx";
 import CheckoutStatusPage from "./pages/Checkout/CheckoutStatusPage.jsx";
 import AccountPage from "./pages/AccountPage/AccountPage.jsx";
