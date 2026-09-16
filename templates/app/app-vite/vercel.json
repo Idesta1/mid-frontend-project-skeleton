@@ -3,6 +3,10 @@
     {
       "source": "/api/events/:id",
       "destination": "/api/events?id=:id"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
